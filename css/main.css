@@ -9,3 +9,20 @@
 
     background: beige;
 }
+
+.wi-celsius,.wi-fahrenheit {
+    font-size: 3em;
+    margin: 5px 5px 2px 0px;    
+
+}
+.wi-degrees {
+    display:inline-block;
+    font-size: 4.3em;
+}
+.btn {
+    padding: 0px 0px 0px 0px;
+
+}
+#weather {
+    display:inline-block;
+}
