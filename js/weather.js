@@ -15,8 +15,6 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-    //Location output
-    //output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
     currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
 
    /* var img = new Image();
@@ -110,33 +108,6 @@ function get(url) {
     xhr.send();
   });
 }
-
-
-
-
-
-
-
-/* Temperature Unit change - promise call
-let clicked;
-function getUnit() {
-  console.log("fired");
-  clicked = !clicked;
-  if(clicked) {
-  currrentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=imperial&APPID=93b0b9be965a11f0f099c8c7f74afa63";
-  console.log(clicked);
-  } else {
-    currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
-  }
-  get(currentURL).then(function(response) {
-    console.log('Vanilla Javascript success!', response.name);
-    document.querySelector("#city").innerHTML = response.name + ", "  + response.sys.country + ":";
-    document.querySelector("#weather").innerHTML = response.main.temp
-    console.log(response.weather)
-  }, function(error) {
-    console.error('Vanilla Javascript failed!', error);
-  })
-};*/
 
 
 
