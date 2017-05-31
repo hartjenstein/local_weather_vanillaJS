@@ -14,7 +14,7 @@ function geoFindMe() {
 
   function success(position) {
     latitude  = position.coords.latitude;
-    longitude = position.coords.longitude;
+    longitude = position.coords.longitude;  
     currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
 
    /* var img = new Image();
@@ -40,6 +40,7 @@ function geoFindMe() {
       }
       // Temperature Unit change
         let clicked;
+        let tempUnit = "celsius";
         let tempOutputCelsius = document.querySelector("#weather").innerHTML;
         function getUnit() {
           let tempOutput = document.querySelector("#weather");
@@ -47,19 +48,37 @@ function geoFindMe() {
           if(clicked) {
             tempOutput.innerHTML = Math.round(tempOutput.innerHTML * (9/5) + 32, -2);
             document.getElementById("unit").innerHTML = ' <i class="wi wi-fahrenheit"></i>';
-            console.log(document.getElementById("unit").innerHTML);
+            tempUnit = "fahrenheit";
           } else {
             tempOutput.innerHTML = tempOutputCelsius;
             document.getElementById("unit").innerHTML = ' <i class="wi wi-celsius"></i>';
+            tempUnit = "celsius";
           }
           tempOutput.style.display = 'none';
           tempOutput.style.display = 'inline-block';
         } 
-
+        // ---- set background image -------
+        setBackground(tempOutputCelsius);
+        function setBackground(temperature){
+            let body = document.querySelector("body");
+            console.log(tempOutputCelsius)
+            console.log(tempUnit)
+         
+            if( (temperature < 3)  ) {
+              body.style.backgroundImage = "url('./img/bg-snow.jpg')"
+            } else if ( temperature < 15 && temperature > 3  ) {
+              body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
+            } else if ( temperature < 25 && temperature >= 15  ) {
+              body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
+            } else if ( temperature > 25 ) {
+              body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
+          }
+        }
     }, function(error) {
       console.error('Vanilla Javascript failed!', error);
 
     })
+ 
     
 }
 
@@ -108,6 +127,7 @@ function get(url) {
     xhr.send();
   });
 }
+
 
 
 
