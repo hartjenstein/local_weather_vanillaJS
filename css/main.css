@@ -10,18 +10,42 @@ body#main, html {
     background-size: cover;
 }
 
-#main {
-    background: lightblue;
-}
-
 #container {
-        padding-top:260px;
+        padding-top:30vh;
 }
 
+#local-weather-text {
+    position: relative;
+    top: -5vh;
+    opacity: 1;
+    z-index: 5;
+}
+#local-weather-text h3{
+    margin-top: 1vh;
+    margin-bottom: 15px;
+}
+#local-weather-text #icon{
+    margin-top: 30vh;
+    padding-top: 30vh;
+    padding-left: 20vh;
+}
+#local-weather-text #unit{
+    margin-left: 63vh;
+    margin-bottom: 9vh;
+}
+#local-weather-text h1#weather{
+    
+    margin-left: 25vh;
+}
 #local-weather {
     position: relative;
+    top: -52vh;
+    right: 2vh;
     opacity: 0.4;
     z-index: 3;
+    min-height: 40vh;
+    min-width: 60vh;
+
 }
 
 .wi-celsius,.wi-fahrenheit {
@@ -31,17 +55,20 @@ body#main, html {
 }
 .wi-degrees {
     display:inline-block;
-    font-size: 4.3em;
+    font-size: 5.9em;
 }
 
 .btn {
     padding: 0px 0px 0px 0px;
     position: relative;
     z-index: 5;
+    background: blue;
+    margin-top: 15px;
 }
 
 #weather {
     display:inline-block;
+    font-size: 5em;
 }
 
 #signed{

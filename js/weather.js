@@ -17,15 +17,15 @@ function geoFindMe() {
     longitude = position.coords.longitude;  
     currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
 
-   /* var img = new Image();
+    var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
-    output.appendChild(img);*/
+    output.appendChild(img);
   
     // ---------  vanilla js promise chain - openweather ----------
   
     get(currentURL).then(function(response) {
-      console.log('Vanilla Javascript success!', response.name);
+      console.log('Request success!', response.name);
       document.querySelector("#city").innerHTML = response.name + ", "  + response.sys.country + ":";
       document.querySelector("#weather").innerHTML = response.main.temp;
       console.log("Temp :", response.main.temp)
@@ -75,7 +75,7 @@ function geoFindMe() {
           }
         }
     }, function(error) {
-      console.error('Vanilla Javascript failed!', error);
+      console.error('Request failed!', error);
 
     })
  
