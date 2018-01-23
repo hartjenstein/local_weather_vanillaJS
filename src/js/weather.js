@@ -1,12 +1,12 @@
 "use strict;"
 // get location
 // ----- Google Maps Api Call --------
-
+let latitude = 0;
+let longitude = 0;
 function geoFindMe() {
-  let latitude;
-  let longitude;
-  let output = document.getElementById("city");
 
+  let output = document.getElementById("city");
+  let map = "";
   if (!navigator.geolocation){
     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
     return;
@@ -16,11 +16,18 @@ function geoFindMe() {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;  
     currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
-
+    let map = document.getElementById("google-map");
     var img = new Image();
-    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+    
+    //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=4" + latitude + "," + longitude + "&zoom=12&size=300x300&maptype=satellite&sensor=false";
+    //&key=AIzaSyCgYlMJC4tBakrqP297aTm2Qt43YvIGoCs";
 
+    //img.src = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=" + latitude + "," + longitude + "&fov=90&heading=235&pitch=10&key=AIzaSyDtTtU7P3vMSBGXqFCkXZYY1QjDMDX6ti0"
+  img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false";
+    console.log(output.appendChild(img));
     output.appendChild(img);
+    console.log("map: ", map);
+    map.appendChild(img);
   
     // ---------  vanilla js promise chain - openweather ----------
   
@@ -40,7 +47,7 @@ function geoFindMe() {
       }
       // Temperature Unit change
         let clicked;
-        let tempUnit = "celsius";
+        let tempUnit = "Celsius";
         let tempOutputCelsius = document.querySelector("#weather").innerHTML;
         function getUnit() {
           let tempOutput = document.querySelector("#weather");
@@ -48,14 +55,17 @@ function geoFindMe() {
           if(clicked) {
             tempOutput.innerHTML = Math.round(tempOutput.innerHTML * (9/5) + 32, -2);
             document.getElementById("unit").innerHTML = ' <i class="wi wi-fahrenheit"></i>';
-            tempUnit = "fahrenheit";
+            tempUnit = "Fahrenheit";
           } else {
             tempOutput.innerHTML = tempOutputCelsius;
             document.getElementById("unit").innerHTML = ' <i class="wi wi-celsius"></i>';
-            tempUnit = "celsius";
+            tempUnit = "Celsius";
           }
           tempOutput.style.display = 'none';
           tempOutput.style.display = 'inline-block';
+          let spanTempUnit = document.querySelector(".temp-unit");
+          console.log("SPANTEMPUNIT ", spanTempUnit)
+          spanTempUnit.innerHTML =tempUnit; 
         } 
         // ---- set background image -------
         setBackground(tempOutputCelsius);
@@ -69,11 +79,12 @@ function geoFindMe() {
             } else if ( temperature < 15 && temperature > 3  ) {
               body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
             } else if ( temperature < 25 && temperature >= 15  ) {
-              body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
+              body.style.backgroundImage = "url('./img/bg-clear.jpg')"
             } else if ( temperature > 25 ) {
-              body.style.backgroundImage = "url('./img/bg-cloudy.jpg')"
+              body.style.backgroundImage = "url('./img/bg-sunny.jpg')"
           }
         }
+        showControls()
     }, function(error) {
       console.error('Request failed!', error);
 
@@ -128,6 +139,10 @@ function get(url) {
   });
 }
 
+function showControls() {
+  let controls = document.querySelector(".controls");
+  controls.style.display = "block";
+}
 
 
 
