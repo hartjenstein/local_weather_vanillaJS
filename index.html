@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/bootstrap-social.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
@@ -13,27 +14,24 @@
   </head>
   <body id="main">
           <div id="container" class="container vertical-center">
-                <div class="row">
-                  <div class="col-md-6 col-md-offset-3">
-                      <div id="local-weather-text">
+              <div id="holder" class="row">
+                  <div id="local-weather-text" class="col">
                         <h3 class="text-center">Current Temperature in <span id="city">...</span></h3>
-                        <div>
-                            <span id="icon"></span>
-                            <div id="temp">
-                              <h1 id="weather"> Fetching weather...</h1>
-                              <i class="wi wi-degrees"></i>
-                            </div>
-                        </div>
-                          <button id="unit" class="btn btn-success" type="submit"> <i class="wi wi-celsius"></i></button>
-                      </div>
-                      </div>
-                      <div class="row">
-                      <div class="col-md-6 col-md-offset-3">
-                      <div id="local-weather" class="jumbotron">
-                        </div>
-                      </div>
                   </div>
-                  </div>
+                  <div class="row innerrow">   
+                          <div class="col col-sm-6">     
+                            <span id="google-map"></span>
+                          </div> 
+                          <div class="col col-sm-6 controls">  
+                                <span id="icon"></span>
+                                <div id="temp"  >
+                                  <h1 id="weather"> Fetching weather...</h1>
+                                  <i class="wi wi-degrees"></i>
+                                  <span class="temp-unit">Celsius</span>
+                                </div>
+                                <button id="unit" class="btn btn-success" type="submit"> <i class="wi wi-celsius"></i></button>
+                          </div>
+              </div>
           </div>
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

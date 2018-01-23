@@ -1,77 +1,86 @@
 
 body#main, html {
-    height: 100%;
      /* Full height */
-    height: 100%; 
-
+    height:100%;
+    overflow:hidden;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background: transparent;
+    background-image: url("../img/bg-clear-sky.jpg");
 }
 
-#container {
-        padding-top:30vh;
+div#container {
+    justify-content: space-between;
+   
 }
+@media only screen
+and (min-width : 529px){
+    #container {
+        padding:20vh 5vh 0 5vh; 
+    }
+}
+@media only screen
+and (max-width : 529px) {
+    div.row.innerrow{
+        padding:0;
+        width:100%;
+    }
+}
+div#holder {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 70%;
+    max-height: 80%;
+    overflow:hidden;
+    border-radius: 10px;
+    margin:auto;
+}
+div.controls {
+    display: none;
+}
+div.innerrow {
+    /* flex-basis: 50%; */
+    padding: 1vh 1vw 1vh 1vw;
+    margin:0 2% 0 2%;
+}
+div.innerrow:last-of-type{
 
-#local-weather-text {
+}
+i.wi-degrees {
+    font-size: 2em;
+    display: inline-block;
+}
+i.wi-degrees:before {
     position: relative;
-    top: -5vh;
-    opacity: 1;
-    z-index: 5;
+    top: -.2em;
 }
-#local-weather-text h3{
-    margin-top: 1vh;
-    margin-bottom: 15px;
-}
-#local-weather-text #icon{
-    margin-top: 30vh;
-    padding-top: 30vh;
-    padding-left: 20vh;
-}
-#local-weather-text #unit{
-    margin-left: 63vh;
-    margin-bottom: 9vh;
-}
-#local-weather-text h1#weather{
-    
-    margin-left: 25vh;
-}
-#local-weather {
-    position: relative;
-    top: -52vh;
-    right: 2vh;
-    opacity: 0.4;
-    z-index: 3;
-    min-height: 40vh;
-    min-width: 60vh;
-
+h1#weather {
+    vertical-align: top;
+    display: inline-block;
 }
 
-.wi-celsius,.wi-fahrenheit {
-    font-size: 3em;
-    margin: 5px 5px 2px 0px;    
-
+button#unit {
+    color: white;
+    font-size: 1.5em;
+    padding: 1.5vh 2.5vw 1vh 2vw;
 }
-.wi-degrees {
+
+div#local-weather-text {
+    padding-bottom: 5vh;
+}
+span#google-map {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+span#icon>img {
+    width: 25%;
+    height: auto;
+}
+span.temp-unit {
     display:inline-block;
-    font-size: 5.9em;
-}
-
-.btn {
-    padding: 0px 0px 0px 0px;
-    position: relative;
-    z-index: 5;
-    background: blue;
-    margin-top: 15px;
-}
-
-#weather {
-    display:inline-block;
-    font-size: 5em;
-}
-
-#signed{
-    color: black;
-    font-size: 1.4em;
+    font-size: 2em;
+    margin-top: .5em;
+    padding-top: .3em;
 }
