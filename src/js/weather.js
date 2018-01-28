@@ -19,7 +19,7 @@ function geoFindMe() {
     let map = document.getElementById("google-map");
     var img = new Image();
     
-  img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false";
+  img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false&key=AIzaSyAvIcswueIwgztHVyErwOHlladFbyPRZTk";
     output.appendChild(img);
     map.appendChild(img);
   
