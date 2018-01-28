@@ -29,7 +29,7 @@ function geoFindMe() {
       let land = response.sys.country == "DE" ? "Deutschland" : response.sys.country;
       document.querySelector("#city").innerHTML = response.name + ", "  + land;
       document.querySelector("#weather").innerHTML = response.main.temp;
-      document.querySelector("#icon").innerHTML = '<img src="http://openweathermap.org/img/w/'+response.weather[0].icon+'.png">';
+      document.querySelector("#icon").innerHTML = '<img src="https://openweathermap.org/img/w/'+response.weather[0].icon+'.png">';
       document.querySelector("#icon-description").innerHTML = response.weather[0].description;
       document.querySelector("#humidity").innerHTML = response.main.humidity + "%";
       // Event handlers
