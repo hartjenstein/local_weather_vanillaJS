@@ -15,10 +15,30 @@ div#container {
     justify-content: space-between;
    
 }
+div#holder {
+    width: 80%;
+    max-height: 80%;
+    margin: auto; 
+    min-width: 280px;
+    overflow:hidden;
+    padding: .5em;
+/*     background-color: rgba(255, 255, 255, 0.6); */
+    background: 
+        linear-gradient(135deg, transparent 15px, rgba(143, 205, 255, 0.4) 0)
+        top left,
+        linear-gradient(-135deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
+        top right,
+        linear-gradient(-45deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
+        bottom right,
+        linear-gradient(45deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
+        bottom left;
+    background-size: 50.05% 50.08%;
+    background-repeat: no-repeat;
+}
 @media only screen
 and (min-width : 529px){
     #container {
-        padding:20vh 5vh 0 5vh; 
+        padding:5em 2em 5em 2em; 
     }
 }
 @media only screen
@@ -26,61 +46,83 @@ and (max-width : 529px) {
     div.row.innerrow{
         padding:0;
         width:100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div#holder {
+        width: 95%;
+        margin-top: 1em;
+        margin-left: .5em;
+        margin-right: .5em;
+        padding-left: auto;
+        padding-right: auto;
+    }
+    div#container {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
-div#holder {
-    background-color: rgba(255, 255, 255, 0.6);
-    width: 70%;
-    max-height: 80%;
-    overflow:hidden;
-    border-radius: 10px;
-    margin:auto;
-}
-div.controls {
-    display: none;
-}
+
+
 div.innerrow {
-    /* flex-basis: 50%; */
-    padding: 1vh 1vw 1vh 1vw;
+    padding: 1em .5em 2em .5em;
     margin:0 2% 0 2%;
+    font-size: 110%;
 }
-div.innerrow:last-of-type{
+div.local-weather-text>h3 {
 
 }
 i.wi-degrees {
-    font-size: 2em;
+    font-size: 180%;
     display: inline-block;
 }
 i.wi-degrees:before {
     position: relative;
     top: -.2em;
 }
-h1#weather {
-    vertical-align: top;
+h2#temp {
+    font-size: 125%;
+    margin-top: 0;
+    display:inline-block;
+}
+h2#weather {
     display: inline-block;
 }
 
 button#unit {
     color: white;
-    font-size: 1.5em;
-    padding: 1.5vh 2.5vw 1vh 2vw;
+    font-size: 125%;
+    padding: .5em 1em .5em 1em;
+    margin-top: 1.2em;
+
 }
 
 div#local-weather-text {
-    padding-bottom: 5vh;
+    padding-bottom: 2em;
 }
-span#google-map {
-    display:block;
+
+span#google-map>img {
+    max-width: 100%;
     margin-left:auto;
     margin-right:auto;
+    border-radius: 10px;
+    margin-bottom: 2em;
 }
 span#icon>img {
     width: 25%;
     height: auto;
 }
+span#icon-description {
+    font-size: 125%;
+}
 span.temp-unit {
     display:inline-block;
-    font-size: 2em;
-    margin-top: .5em;
+    font-size: 125%;
     padding-top: .3em;
+}
+span#humidity {
+    font-size: 110%;
+}
+h2#luftfeuchtigkeit {
+    font-size: 110%
 }
