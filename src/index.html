@@ -13,30 +13,32 @@
     <title>Local Weather</title>
   </head>
   <body id="main">
-          <div id="container" class="container vertical-center">
-              <div id="holder" class="row">
-                  <div id="local-weather-text" class="col">
-                        <h3 class="text-center">Current Temperature in <span id="city">...</span></h3>
-                  </div>
-                  <div class="row innerrow">   
-                          <div class="col col-sm-6">     
-                            <span id="google-map"></span>
-                          </div> 
-                          <div class="col col-sm-6 controls">  
-                                <span id="icon"></span>
-                                <div id="temp"  >
-                                  <h1 id="weather"> Fetching weather...</h1>
-                                  <i class="wi wi-degrees"></i>
-                                  <span class="temp-unit">Celsius</span>
-                                </div>
-                                <button id="unit" class="btn btn-success" type="submit"> <i class="wi wi-celsius"></i></button>
-                          </div>
-              </div>
+    <div id="container" class="container vertical-center">
+      <div id="holder" class="row">
+        <div id="local-weather-text" class="col">
+          <h3 class="text-center">Aktuelles Wetter: <span id="city">...</span></h3>
+        </div>
+        <div class="row innerrow">   
+          <div class="col col-sm-6 map">     
+            <span id="google-map"></span>
+          </div> 
+          <div class="col col-sm-6 controls">  
+            <span id="icon"></span>
+            <span id="icon-description"> </span>
+            <div id="temp"  > <h2 id="temp">Temperatur:&nbsp;</h2>
+              <h2 id="weather"> Lade Daten...</h1>
+              <i class="wi wi-degrees"></i>
+              <span class="temp-unit">Celsius</span>
+              <h2 id="luftfeuchtigkeit">Luftfeuchtigkeit:&nbsp;</h2>
+              <span id="humidity"> </span>
+            </div>
+              <button id="unit" class="btn btn-success" type="submit"> <i class="wi wi-celsius"></i></button>
           </div>
+        </div>
+      </div>
+    </div>
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
               <script src="./js/weather.js"></script>
-              <!--<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyA9JuwPXxZZ_abSa9sz_FsreMqrEYz0kYI&ver=3.exp"></script> -->
-
   </body>
 </html>

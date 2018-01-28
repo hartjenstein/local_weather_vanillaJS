@@ -15,29 +15,23 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;  
-    currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
+    currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63&lang=de";
     let map = document.getElementById("google-map");
     var img = new Image();
     
-    //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=4" + latitude + "," + longitude + "&zoom=12&size=300x300&maptype=satellite&sensor=false";
-    //&key=AIzaSyCgYlMJC4tBakrqP297aTm2Qt43YvIGoCs";
-
-    //img.src = "https://maps.googleapis.com/maps/api/streetview?size=400x400&location=" + latitude + "," + longitude + "&fov=90&heading=235&pitch=10&key=AIzaSyDtTtU7P3vMSBGXqFCkXZYY1QjDMDX6ti0"
   img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false";
-    console.log(output.appendChild(img));
     output.appendChild(img);
-    console.log("map: ", map);
     map.appendChild(img);
   
     // ---------  vanilla js promise chain - openweather ----------
   
     get(currentURL).then(function(response) {
-      console.log('Request success!', response.name);
-      document.querySelector("#city").innerHTML = response.name + ", "  + response.sys.country + ":";
+      let land = response.sys.country == "DE" ? "Deutschland" : response.sys.country;
+      document.querySelector("#city").innerHTML = response.name + ", "  + land;
       document.querySelector("#weather").innerHTML = response.main.temp;
-      console.log("Temp :", response.main.temp)
       document.querySelector("#icon").innerHTML = '<img src="http://openweathermap.org/img/w/'+response.weather[0].icon+'.png">';
-      
+      document.querySelector("#icon-description").innerHTML = response.weather[0].description;
+      document.querySelector("#humidity").innerHTML = response.main.humidity + "%";
       // Event handlers
       let el = document.getElementById("unit");
       el.addEventListener("click", fireEvents);
@@ -64,15 +58,12 @@ function geoFindMe() {
           tempOutput.style.display = 'none';
           tempOutput.style.display = 'inline-block';
           let spanTempUnit = document.querySelector(".temp-unit");
-          console.log("SPANTEMPUNIT ", spanTempUnit)
           spanTempUnit.innerHTML =tempUnit; 
         } 
         // ---- set background image -------
         setBackground(tempOutputCelsius);
         function setBackground(temperature){
             let body = document.querySelector("body");
-            console.log(tempOutputCelsius)
-            console.log(tempUnit)
          
             if( (temperature < 3)  ) {
               body.style.backgroundImage = "url('./img/bg-snow.jpg')"
@@ -94,10 +85,10 @@ function geoFindMe() {
 }
 
   function error() {
-    output.innerHTML = "Unable to retrieve your location";
+    output.innerHTML = "Konnte Position nicht betimmen";
   }
 
-  output.innerHTML = "<p>Locating…</p>";
+  output.innerHTML = "<p>Orte Position…</p>";
 
   navigator.geolocation.getCurrentPosition(success, error);
   
