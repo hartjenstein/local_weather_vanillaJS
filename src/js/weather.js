@@ -15,7 +15,7 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;  
-    currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63&lang=de";
+    currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63&lang=de";
     let map = document.getElementById("google-map");
     var img = new Image();
     
@@ -29,7 +29,7 @@ function geoFindMe() {
       let land = response.sys.country == "DE" ? "Deutschland" : response.sys.country;
       document.querySelector("#city").innerHTML = response.name + ", "  + land;
       document.querySelector("#weather").innerHTML = response.main.temp;
-      document.querySelector("#icon").innerHTML = '<img src="http://openweathermap.org/img/w/'+response.weather[0].icon+'.png">';
+      document.querySelector("#icon").innerHTML = '<img src="https://openweathermap.org/img/w/'+response.weather[0].icon+'.png">';
       document.querySelector("#icon-description").innerHTML = response.weather[0].description;
       document.querySelector("#humidity").innerHTML = response.main.humidity + "%";
       // Event handlers
@@ -98,7 +98,7 @@ geoFindMe();
 
     // OPEN WEATHER API CALL -----------------  
    // Vanilla JavaScript OpenWeather query
-currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
+currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
 
 // Vanilla Javascript Ajax call (with promise)
 function get(url) {
