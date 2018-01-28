@@ -98,7 +98,7 @@ geoFindMe();
 
     // OPEN WEATHER API CALL -----------------  
    // Vanilla JavaScript OpenWeather query
-currentURL = "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
+currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=93b0b9be965a11f0f099c8c7f74afa63";
 
 // Vanilla Javascript Ajax call (with promise)
 function get(url) {
