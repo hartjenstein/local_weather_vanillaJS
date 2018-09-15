@@ -16,14 +16,15 @@ div#container {
    
 }
 div#holder {
+    border-radius: 5px;
     width: 80%;
     max-height: 80%;
     margin: auto; 
     min-width: 280px;
     overflow:hidden;
     padding: .5em;
-/*     background-color: rgba(255, 255, 255, 0.6); */
-    background: 
+    background: rgba(255, 255, 255, 0.4);
+/*     background: 
         linear-gradient(135deg, transparent 15px, rgba(143, 205, 255, 0.4) 0)
         top left,
         linear-gradient(-135deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
@@ -31,7 +32,7 @@ div#holder {
         linear-gradient(-45deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
         bottom right,
         linear-gradient(45deg, transparent 15px,  rgba(143, 205, 255, 0.4) 0)
-        bottom left;
+        bottom left; */
     background-size: 50.00% 50.00%;
     background-repeat: no-repeat;
 }
