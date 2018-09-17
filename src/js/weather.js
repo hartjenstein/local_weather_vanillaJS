@@ -15,7 +15,7 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;  
-    currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=8cf55d0643deacaec6ffad3309ba7802&lang=de";
+    currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=_SECRET_&lang=de";
     let map = document.getElementById("google-map");
     var img = new Image();
     
