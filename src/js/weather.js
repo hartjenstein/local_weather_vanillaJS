@@ -19,7 +19,7 @@ function geoFindMe() {
     let map = document.getElementById("google-map");
     var img = new Image();
     
-  img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false&key=AIzaSyDokRCBZZdMADwpo-ndrmpyut6_FuOWL-E";
+  img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&markers=color:green%7Clabel:U%7C" + latitude + "," + longitude + "&zoom=15&size=300x300&sensor=false&key=SECRET";
     output.appendChild(img);
     map.appendChild(img);
   
@@ -98,7 +98,7 @@ geoFindMe();
 
     // OPEN WEATHER API CALL -----------------  
    // Vanilla JavaScript OpenWeather query
-currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=8cf55d0643deacaec6ffad3309ba7802";
+currentURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=metric&APPID=SECRET";
 
 // Vanilla Javascript Ajax call (with promise)
 function get(url) {
